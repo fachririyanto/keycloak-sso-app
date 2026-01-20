@@ -1,0 +1,3 @@
+fastapi[standard]==0.128.0
+python-jose==3.3.0
+python-keycloak==7.0.2
