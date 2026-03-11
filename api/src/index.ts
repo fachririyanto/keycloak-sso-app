@@ -1,9 +1,13 @@
 import { Elysia } from "elysia";
 import { cors } from "@elysiajs/cors";
+import { swagger } from "@elysiajs/swagger";
 import { accountRouter } from "./router/account";
 
 const app = new Elysia()
   .use(cors())
+  .use(swagger({
+    path: "/docs",
+  }))
   .get("/health", () => ({ status: "healthy" }))
   .use(accountRouter)
   .listen(8000);

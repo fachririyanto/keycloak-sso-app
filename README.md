@@ -2,7 +2,7 @@
 
 Monorepo demo for authentication and SSO with **Keycloak** across:
 
-- `api` (FastAPI)
+- `api` (ElysiaJS)
 - `webapp-one` (React + Vite)
 - `webapp-two` (React + Vite)
 - local auth infra (`Postgres`, `Keycloak`, `Nginx`) via Docker Compose
@@ -16,15 +16,15 @@ webapp-one (5173) ----\
                       >--- Keycloak (8080, proxied by Nginx on :80)
 webapp-two (5174) ----/
 
-webapp-one/webapp-two -> FastAPI API (:8000) with Authorization: Bearer <token>
-FastAPI -> Keycloak userinfo + admin APIs (profile/password actions)
+webapp-one/webapp-two -> ElysiaJS API (:8000) with Authorization: Bearer <token>
+ElysiaJS -> Keycloak userinfo + admin APIs (profile/password actions)
 Keycloak -> Postgres
 ```
 
 ## Repo Structure
 
 ```text
-api/            FastAPI service with Keycloak token validation + account endpoints
+api/            ElysiaJS service with Keycloak token validation + account endpoints
 webapp-one/     First frontend app (Keycloak login-required)
 webapp-two/     Second frontend app (Keycloak login-required)
 docker-compose.yml  Local Keycloak/Postgres/PgAdmin/Nginx stack
@@ -135,11 +135,8 @@ VITE_API_URL=http://localhost:8000
 
 ```bash
 cd api
-python -m venv .venv
-# Windows PowerShell
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-fastapi dev main.py --port 8000
+bun install
+bun run dev
 ```
 
 Health check:
