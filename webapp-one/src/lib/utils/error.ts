@@ -5,7 +5,7 @@ export const getErrorMessage = (error: unknown, defaultError: string = "An unkno
         if (error.status === 500) {
             return error.message;
         }
-        return error.response?.data?.detail || defaultError;
+        return error.response?.data?.error || defaultError;
     } else if (error instanceof Error) {
         return error.message;
     } else {
