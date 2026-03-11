@@ -15,6 +15,7 @@ const api = axios.create({
  */
 api.interceptors.request.use(async (config) => {
     if (keyCloak && keyCloak.token) {
+        await keyCloak.updateToken(30); // Refresh token if it's about to expire in 30 seconds
         config.headers["Authorization"] = `Bearer ${keyCloak.token}`;
     }
 
