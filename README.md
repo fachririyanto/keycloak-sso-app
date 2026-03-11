@@ -5,7 +5,7 @@ This repository contains example implementations of authentication using **Keycl
 Each example is available in a separate branch:
 
 - **FastAPI**: `feat/01-api-fastapi` - https://github.com/fachririyanto/keycloak-sso-app/tree/feat/01-api-fastapi
-- **ElysiaJS**: `feat/02/api-elysia` - https://github.com/fachririyanto/keycloak-sso-app/tree/feat/02-api-elysia
+- **ElysiaJS**: `feat/02-api-elysia` - https://github.com/fachririyanto/keycloak-sso-app/tree/feat/02-api-elysia
 
 ## How to Use
 
@@ -18,5 +18,5 @@ git checkout feat/01-api-fastapi
 or
 
 ```bash
-git checkout feat/02/api-elysia
+git checkout feat/02-api-elysia
 ```
